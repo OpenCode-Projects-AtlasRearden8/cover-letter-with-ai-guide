@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6. Privacy &amp; Local AI (Ollama) — Cover Letters with AI</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<header class="site-head">
+  <a href="index.html" class="brand">Cover Letters with AI</a>
+  <p class="tagline">Plain-English job-letter help, AI-assisted and privacy-aware.
+  A project by <strong>Asdale Dynamics, LLC</strong> (Dylan Asdale, <em>The Massive AI Manual</em>).</p>
+</header>
+<div class="wrap">
+<nav class="side">
+<a href="index.html">Read Me First</a>
+<a href="01-structure-that-reads-human.html">1. Structure That Reads Human</a>
+<a href="02-tailor-per-posting.html">2. Tailoring One Letter Per Posting</a>
+<a href="03-proof-prompts-resume.html">3. Proof-Pulling Prompt Recipes</a>
+<a href="04-nurse-pivot-examples.html">4. Nurse-to-Nonclinical Pivot Examples</a>
+<a href="05-ats-safe-formatting.html">5. ATS-Safe Formatting</a>
+<a href="06-privacy-local-ollama.html" class="active">6. Privacy & Local AI (Ollama)</a>
+<h2>Examples</h2>
+<a href="examples/before-letter-A.html">Example A — Before</a>
+<a href="examples/after-letter-A.html">Example A — After</a>
+<a href="examples/before-letter-B.html">Example B — Before (snippet)</a>
+<a href="examples/after-letter-B.html">Example B — After</a>
+<a href="examples/sanitized-prompt-pack.html">Sanitized Prompt Pack</a>
+<a href="examples/proof-bank-sample.html">Sample Proof Bank</a>
+<h2>Tools</h2>
+<a href="before-after.html">Before &amp; After, side by side</a>
+</nav>
+<main>
+<h2 id="the-rule-stated-once-and-plainly">The rule, stated once and plainly</h2>
+<p><strong>Never paste employer names, colleague details, patient information, dates or places that identify you, or anything else personal into cloud AI tools.</strong></p>
+<p>Everything a cloud tool receives may be stored, logged, used for training, or breached. A cover letter is full of identifying material: where you worked, what years, what unit, whom you trained, what your employer's quality issues were. Treat all of it as potentially identifying information — because a determined person can often reconstruct "which nurse" from surprisingly little. (And if you are a healthcare worker, the bar is higher still: anything resembling patient details may carry compliance obligations far beyond embarrassment.)</p>
+<p>The good news: you do not need cloud tools for any of this. A modern laptop runs excellent models locally, free, with nothing ever leaving the machine.</p>
+<h2 id="the-swap-technique-minimum-safe-practice-if-you-must-use-a-cloud-chat">The swap technique (minimum safe practice, if you must use a cloud chat)</h2>
+<p>If a cloud chat is your only option, sanitize first using neutral stand-ins:</p>
+<table>
+<thead><tr>
+<th>Real</th><th>Swapped</th>
+</tr></thead>
+<tbody>
+<tr><td>St. Vincent Regional Medical Center</td><td>"a 400-bed community hospital"</td></tr>
+<tr><td>Mercy Health Network, 2019–2025</td><td>"a multi-site provider network, six recent years"</td></tr>
+<tr><td>precepted Priya and Marcus</td><td>"precepted two new grads"</td></tr>
+<tr><td>Lakeview Clinic's fall rates</td><td>"our unit's fall rates"</td></tr>
+</tbody></table>
+<p>Write letters addressed to the neutral stand-in, and put the real names back only in your local final file, after the AI work is done. The letter content does not change — the AI never needed the truth of the names, only the shape of the facts.</p>
+<p>Even with swaps, prefer local. Swaps are the fallback, not the plan.</p>
+<h2 id="local-first-with-ollama-the-real-solution">Local-first with Ollama (the real solution)</h2>
+<p><strong>Ollama</strong> runs open-weight models entirely on your computer. No account, no upload, no cloud round trip. Free.</p>
+<p><strong>One-time setup (10 minutes):</strong></p>
+<ol>
+<li>Download Ollama from <code>ollama.com</code> (Windows/macOS/Linux).</li>
+<li>Open a terminal and pull a good general model:</li>
+</ol>
+<ul>
+<li><code>ollama pull llama3.1</code> (balanced; runs on most 16 GB machines)</li>
+<li><code>ollama pull qwen2.5</code> — strong writing quality, similar size</li>
+<li>If you have 16 GB+ RAM and patience, <code>ollama pull qwen2.5:14b</code> writes noticeably better.</li>
+</ul>
+<ol>
+<li>Test: <code>ollama run llama3.1 "Say hello in one sentence."</code></li>
+</ol>
+<p><strong>The daily flow:</strong></p>
+<ul>
+<li>Interactive chat: <code>ollama run llama3.1</code>, then paste your sanitized prompt. Type <code>/bye</code> to exit.</li>
+<li>One-shot (great for the Chapter 3 recipes): </li>
+</ul>
+<p>  ``<code>   ollama run llama3.1 "Draft a 200-word cover letter using ONLY these facts: ..." &lt; proof-bank.txt   </code>`<code>   or write your prompt to a file and pipe it: </code>ollama run llama3.1 "$(cat prompt.txt)"`.</p>
+<ul>
+<li>Long proof banks work fine — paste the whole thing. Local context windows on these models (8–32k) handle entire sanitized resumes and postings at once.</li>
+</ul>
+<p><strong>UI wrapper (optional):</strong> tools like <strong>Open WebUI</strong> give Ollama a browser-style chat window, still fully local. Nice if you prefer chat windows to terminals.</p>
+<h2 id="what-local-models-can-and-cant-do-honest-calibration">What local models can and can't do (honest calibration)</h2>
+<ul>
+<li><strong>Can:</strong> brainstorm hooks, restructure sentences, translate clinical → nonclinical language, draft from your facts, red-team your letter's claims, match voice.</li>
+<li><strong>Cannot (as reliably as giant cloud models):</strong> recall niche industry conventions, and — the big one — they are more confident and less self-critical. Chapter 3's "flag weak claims" instructions matter more locally, not less. You are the editor regardless.</li>
+<li><strong>Speed:</strong> a 8B model on a modern laptop is fully usable for text work; expect a few seconds per answer, not instant.</li>
+</ul>
+<h2 id="local-file-hygiene-often-forgotten">Local file hygiene (often forgotten)</h2>
+<p>The privacy rule extends past AI:</p>
+<ul>
+<li>Keep the proof bank and letters in a folder with no auto-sync to cloud drives (or accept and audit that sync).</li>
+<li>Emails: paste the letter, never attach the proof bank.</li>
+<li>Portfolio/website: if you publish a letter as a writing sample (as this project's site does with fictional examples), keep it fictional and scrubbed — which is exactly why all examples here are fictional composites, not Dylan's real letters.</li>
+</ul>
+<h2 id="a-quick-self-audit-before-you-hit-send">A quick self-audit before you hit send</h2>
+<ol>
+<li>Does the letter contain any credential, name, or identifier the <em>cloud tool ever saw</em>? (If you used Ollama locally throughout: it can't have.)</li>
+<li>Does my sent file contain my real contact info only where the employer expects it? Yes — that is the one place identifying data <em>belongs</em>: in your application to the employer, never in the tools.</li>
+</ol>
+<p>Local tools, swapped drafts, real letter at the end. That is the whole technique.</p>
+<hr>
+<p>Copyright (c) 2026 Asdale Dynamics, LLC. Licensed under the MIT License.</p>
+</main>
+</div>
+<footer class="site-foot">
+<p>Copyright (c) 2026 Asdale Dynamics, LLC. Licensed under the MIT License (see LICENSE in the project repository).</p>
+</footer>
+</body>
+</html>

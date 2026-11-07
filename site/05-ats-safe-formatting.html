@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5. ATS-Safe Formatting — Cover Letters with AI</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<header class="site-head">
+  <a href="index.html" class="brand">Cover Letters with AI</a>
+  <p class="tagline">Plain-English job-letter help, AI-assisted and privacy-aware.
+  A project by <strong>Asdale Dynamics, LLC</strong> (Dylan Asdale, <em>The Massive AI Manual</em>).</p>
+</header>
+<div class="wrap">
+<nav class="side">
+<a href="index.html">Read Me First</a>
+<a href="01-structure-that-reads-human.html">1. Structure That Reads Human</a>
+<a href="02-tailor-per-posting.html">2. Tailoring One Letter Per Posting</a>
+<a href="03-proof-prompts-resume.html">3. Proof-Pulling Prompt Recipes</a>
+<a href="04-nurse-pivot-examples.html">4. Nurse-to-Nonclinical Pivot Examples</a>
+<a href="05-ats-safe-formatting.html" class="active">5. ATS-Safe Formatting</a>
+<a href="06-privacy-local-ollama.html">6. Privacy & Local AI (Ollama)</a>
+<h2>Examples</h2>
+<a href="examples/before-letter-A.html">Example A — Before</a>
+<a href="examples/after-letter-A.html">Example A — After</a>
+<a href="examples/before-letter-B.html">Example B — Before (snippet)</a>
+<a href="examples/after-letter-B.html">Example B — After</a>
+<a href="examples/sanitized-prompt-pack.html">Sanitized Prompt Pack</a>
+<a href="examples/proof-bank-sample.html">Sample Proof Bank</a>
+<h2>Tools</h2>
+<a href="before-after.html">Before &amp; After, side by side</a>
+</nav>
+<main>
+<h2 id="what-an-ats-actually-does">What an ATS actually does</h2>
+<p>An Applicant Tracking System (ATS) parses your file into plain text: name, contact, sections, dates, keywords. Format it reads cleanly → you are evaluated as a candidate. Format it chokes on → you may be evaluated as a jumble of fragments, or not evaluated at all. Same humans, same words — completely different outcomes.</p>
+<p>A cover letter is usually read lightly by ATS (resumes get the parsing pressure), but it is frequently routed with the resume as one packet, and sloppy files can corrupt the bundle. Keep letters ATS-clean for the same reason you keep a resume clean.</p>
+<h2 id="the-rules">The rules</h2>
+<p><strong>Do:</strong></p>
+<ul>
+<li><strong>File types:</strong> <code>.docx</code> first, <code>.pdf</code> an accepted backup; if the portal asks for plain pasted text, paste plain text. Follow whatever the posting specifies, always.</li>
+<li><strong>Standard structure top to bottom:</strong> Name, phone or email (one or the other — this guide prefers no street address), date optional, greeting, body, sign-off.</li>
+<li><strong>Plain section labels</strong> if you use any ("Cover Letter" as a heading or title line is fine).</li>
+<li><strong>Standard fonts</strong> (Calibri, Arial, Georgia, Times). 11–12 pt.</li>
+<li><strong>Simple margins</strong> (1 inch is fine), left-aligned text.</li>
+<li><strong>Exact keyword echo</strong> from the posting, spelled the way the posting spells it ("nurse case management," not "case-management nursing").</li>
+<li><strong>Straight quotes and normal dashes.</strong> Smart quotes (<code>" "</code>) and em dashes from fancy editors usually survive, but straight ones never fail.</li>
+</ul>
+<p><strong>Don't:</strong></p>
+<ul>
+<li>No text boxes, columns, tables, or sidebars — these scramble in extraction.</li>
+<li>No headers/footers holding important text; some parsers skip them entirely.</li>
+<li>No images, logos, icons, or graphics.</li>
+<li>No fancy bullet glyphs; hyphens only if bullets are needed at all.</li>
+<li>No watermarks or background shading.</li>
+<li>No tiny font or exotic spacing tricks to fit a page.</li>
+</ul>
+<h2 id="the-layout-that-never-fails">The layout that never fails</h2>
+<pre><code>Sam R.
+sam.r.email@example.com
+
+Dear Ms. Okafor,
+
+You&#x27;re hiring ..., and I&#x27;ve spent ...
+
+[three short paragraphs, left aligned]
+
+Thank you for reading.
+
+Sam R.</code></pre>
+<p>Single column. Five visual blocks. That is the entire aesthetic — and it also happens to read best for humans.</p>
+<h2 id="test-before-you-send-the-two-minute-check">Test before you send: the two-minute check</h2>
+<ol>
+<li><strong>Copy-paste test.</strong> Select all in your editor, copy, paste into Notepad (or any plain-text window). If the paste reads as clean top-to-bottom text with no lost sentences, an ATS extraction will likely survive too. If sentences appear out of order, you have a text box or column somewhere.</li>
+<li><strong>Rename sanity.</strong> <code>Cover-Letter-SamR-Customer-Success.docx</code> — not <code>letter_v7_FINAL_final(2).docx</code>.</li>
+<li><strong>Filename and email match the application.</strong> If you use a different first name in the letter than on the resume, one of them is wrong.</li>
+</ol>
+<h2 id="the-one-overlap-worth-noting">The one overlap worth noting</h2>
+<p>ATS safety is mostly the <em>resume's</em> problem — that is a whole separate discipline, covered by the related <code>ats-resume-checker-cli</code> project, which scores resume parsing directly. This chapter keeps your letter from being the weak link in the packet.</p>
+<hr>
+<p>Copyright (c) 2026 Asdale Dynamics, LLC. Licensed under the MIT License.</p>
+</main>
+</div>
+<footer class="site-foot">
+<p>Copyright (c) 2026 Asdale Dynamics, LLC. Licensed under the MIT License (see LICENSE in the project repository).</p>
+</footer>
+</body>
+</html>
